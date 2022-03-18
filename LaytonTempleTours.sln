@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaytonTempleTours", "LaytonTempleTours\LaytonTempleTours.csproj", "{E41EAFC6-0DCC-427E-88D2-C9B4F35FBEBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E41EAFC6-0DCC-427E-88D2-C9B4F35FBEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E41EAFC6-0DCC-427E-88D2-C9B4F35FBEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E41EAFC6-0DCC-427E-88D2-C9B4F35FBEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E41EAFC6-0DCC-427E-88D2-C9B4F35FBEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3625DE1-F576-433A-9464-B66DBC1BAB1D}
+	EndGlobalSection
+EndGlobal
