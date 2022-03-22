@@ -11,3 +11,33 @@
         <div class="masthead-small-subheading">View and Edit Appointments Below</div>
     </div>
 </header>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Time Slot</th>
+    </tr>
+    @foreach(var app in Model.Appointments)
+    {
+        <tr>
+            <td>@app.ID</td>
+            <td>@app.Name</td>
+            <td>@app.Size</td>
+            <td>@app.Email</td>
+            <td>@app.Phone</td>
+            <td>@app.TimeSlot</td>
+
+            <td>
+                <a asp-page="edit" asp-route-id="@app.ID">Edit</a>
+                    | 
+                <a asp-page="Index" asp-page-handler="Delete" asp-route-id="@app.ID"
+                   onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
