@@ -29,6 +29,10 @@ namespace LaytonTempleTours
             {
                 options.UseSqlite(Configuration["ConnectionStrings:ToursConnection"]);
             });
+
+            services.AddScoped<IAppointmentRepository, EFAppointmentRepository>();
+            services.AddScoped<ITimeSlotRepository, EFTimeSlotRepository>();
+
             services.AddRazorPages();
         }
 

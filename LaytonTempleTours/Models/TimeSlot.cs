@@ -13,6 +13,6 @@ namespace LaytonTempleTours.Models
         public int? AppointmentID { get; set; }
 
         // Navigation Properties
-        public Appointment Appointment { get; set; }
+        //public Appointment Appointment { get; set; }
     }
 }
