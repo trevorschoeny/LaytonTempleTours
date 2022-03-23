@@ -11,29 +11,29 @@
         <div class="masthead-small-subheading">Schedule a Tour Below!</div>
     </div>
 </header>
+<div class="text-center">
+    <h2 class="section-heading text-uppercase">Schedule Appointment for @Model.timeSlot.DateTime</h2>
+</div>
+    <form class="form-group" method="post" asp-page="signupForm">
 
-<h1 class="display-3">Schedule Appointment for @Model.timeSlot.DateTime</h1>
+        <div asp-validation-summary="All" class="text-danger"></div>
 
-<form method="post" asp-page="signupForm">
+        <label>Name of Group</label>
+        <input class="form-control" asp-for="appointment.Name" /><br />
 
-    <div asp-validation-summary="All" class="text-danger"></div>
+        <label>Size of Group (Max of 15)</label>
+        <input class="form-control" asp-for="appointment.Size" /><br />
 
-    <label>Name of Group</label>
-    <input asp-for="appointment.Name" /><br />
+        <label>Email Address</label>
+        <input class="form-control" asp-for="appointment.Email" /><br />
 
-    <label>Size of Group (Max of 15)</label>
-    <input asp-for="appointment.Size" /><br />
+        <label>Phone Number (Optional)</label>
+        <input class="form-control" asp-for="appointment.Phone" /><br />
 
-    <label>Email Address</label>
-    <input asp-for="appointment.Email" /><br />
+        <input type="hidden" asp-for="appointment.Time" value="@Model.timeSlot.DateTime" />
 
-    <label>Phone Number (Optional)</label>
-    <input asp-for="appointment.Phone" /><br />
+        <input type="hidden" name="timeid" value="@Model.timeSlot.ID" />
 
-    <input type="hidden" asp-for="appointment.Time" value="@Model.timeSlot.DateTime" />
+        <button class="btn btn-primary" type="submit">Save</button>
 
-    <input type="hidden" name="timeid" value="@Model.timeSlot.ID" />
-
-    <button type="submit">Save</button>
-
-</form>
+    </form>
