@@ -1,0 +1,49 @@
+﻿@page
+@model LaytonTempleTours.Pages.Admin.editModel
+@{
+}
+
+<! DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device=width"/>
+    <title>Edit</title>
+</head>
+
+<body>
+
+    <h3>Edit Appointment</h3>
+    <form method="post" asp-page="edit">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>ID</td>
+                <td><input asp-for="appointment.ID" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input asp-for="appointment.Name" /></td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td><input asp-for="appointment.Size" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input asp-for="appointment.Email" /></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input asp-for="appointment.Phone" /></td>
+            </tr>
+            <tr>
+                <td>Time Slot</td>
+                <td><input asp-for="appointment.TimeSlot" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit"  value="Save"/></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

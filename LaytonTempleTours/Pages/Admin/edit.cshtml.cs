@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,24 +8,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LaytonTempleTours.Pages.Admin
 {
-    public class IndexModel : PageModel
+    public class editModel : PageModel
     {
         private ToursContext db;
-        public IndexModel(ToursContext _db)
+
+        [BindProperty]
+        public Appointment appointment { get; set; }
+
+        public editModel(ToursContext _db)
         {
             db = _db;
         }
-
-        public List<Appointment> Appointments;
-        public void OnGet()
+        public void OnGet(string id)
         {
-            Appointments = db.Appointments.ToList();
+            appointment = db.Appointments.Find(id);
         }
 
-        public IActionResult OnGetDelete(string id)
+        public IActionResult OnPost()
         {
-            var appointment = db.Appointments.Find(id);
-            db.Remove(appointment);
+            db.Entry(appointment).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             db.SaveChanges();
             return RedirectToPage("Index");
         }
