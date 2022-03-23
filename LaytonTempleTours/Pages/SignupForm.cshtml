@@ -1,0 +1,39 @@
+﻿@page
+@model LaytonTempleTours.Pages.SignupFormModel
+@{
+    ViewData["Title"] = "Sign Up Form";
+}
+
+<!-- Masthead-->
+<header class="masthead-small">
+    <div class="container">
+        <div class="masthead-small-heading text-uppercase">Scheduler</div>
+        <div class="masthead-small-subheading">Schedule a Tour Below!</div>
+    </div>
+</header>
+
+<h1 class="display-3">Schedule Appointment for @Model.timeSlot.DateTime</h1>
+
+<form method="post" asp-page="signupForm">
+    
+    <label>Name of Group</label>
+    <input asp-for="appointment.Name" /><br />
+        
+    <label>Size of Group (Max of 15)</label>
+    <input asp-for="appointment.Size" /><br />
+        
+    <label>Email Address</label>
+    <input asp-for="appointment.Email" /><br />
+        
+    <label>Phone Number (Optional)</label>
+    <input asp-for="appointment.Phone" /><br />
+
+    <input type="hidden" asp-for="appointment.TimeSlot" value="@Model.timeSlot"/>
+
+    <input type="hidden" asp-for="timeSlot.Appointment" value="@Model.appointment" />
+
+    <input type="hidden" name="timeid" value="@Model.timeSlot.ID" />
+
+    <button type="submit">Save</button>
+       
+</form>
