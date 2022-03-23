@@ -16,7 +16,8 @@ namespace LaytonTempleTours.Migrations
                     Name = table.Column<string>(nullable: false),
                     Size = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: false),
-                    Phone = table.Column<string>(nullable: true)
+                    Phone = table.Column<string>(nullable: true),
+                    Time = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -35,12 +36,6 @@ namespace LaytonTempleTours.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TimeSlots", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_TimeSlots_Appointments_AppointmentID",
-                        column: x => x.AppointmentID,
-                        principalTable: "Appointments",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -402,21 +397,15 @@ namespace LaytonTempleTours.Migrations
                 table: "TimeSlots",
                 columns: new[] { "ID", "AppointmentID", "DateTime" },
                 values: new object[] { 72, null, new DateTime(2022, 4, 9, 19, 0, 0, 0, DateTimeKind.Unspecified) });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TimeSlots_AppointmentID",
-                table: "TimeSlots",
-                column: "AppointmentID",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TimeSlots");
+                name: "Appointments");
 
             migrationBuilder.DropTable(
-                name: "Appointments");
+                name: "TimeSlots");
         }
     }
 }

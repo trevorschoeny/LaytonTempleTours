@@ -1,0 +1,45 @@
+﻿@page
+@model LaytonTempleTours.Pages.Admin.EditModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<!-- Masthead-->
+<header class="masthead-small">
+    <div class="container">
+        <div class="masthead-small-heading text-uppercase">Admin</div>
+        <div class="masthead-small-subheading">Edit Appointment</div>
+    </div>
+</header>
+
+<h3>Edit Appointment for @Model.appointment.Time</h3>
+<form method="post" asp-page="edit">
+    <table cellpadding="2" cellspacing="2">
+        <tr>
+            <td><input type="hidden" name="appid" asp-for="appointment.ID" readonly="readonly" /></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input asp-for="appointment.Name" /></td>
+        </tr>
+        <tr>
+            <td>Size</td>
+            <td><input asp-for="appointment.Size" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input asp-for="appointment.Email" /></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input asp-for="appointment.Phone" /></td>
+        </tr>
+        <tr>
+            <td><input type="hidden" asp-for="appointment.Time" /></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Save" /></td>
+        </tr>
+    </table>
+</form>

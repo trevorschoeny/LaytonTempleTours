@@ -54,13 +54,22 @@ namespace LaytonTempleTours.Pages
 
         public IActionResult OnPost(int timeid)
         {
-            timeSlot = repoTime.TimeSlots.Single(x => x.ID == timeid);
-            repoApp.Create(appointment);
-            //repoApp.Save(appointment);
-            var a = appointment.ID;
-            timeSlot.AppointmentID = a;
-            repoTime.Save(timeSlot);
-            return RedirectToPage("Index");
+            if (ModelState.IsValid)
+            {
+                timeSlot = repoTime.TimeSlots.Single(x => x.ID == timeid);
+                repoApp.Create(appointment);
+                var a = appointment.ID;
+                timeSlot.AppointmentID = a;
+                repoTime.Save(timeSlot);
+
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                timeSlot = repoTime.TimeSlots.Single(x => x.ID == timeid);
+                appointment = new Appointment();
+                return Page();
+            }
         }
     }
 }

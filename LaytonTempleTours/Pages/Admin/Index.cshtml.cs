@@ -22,8 +22,10 @@ namespace LaytonTempleTours.Pages.Admin
             Appointments = db.Appointments.ToList();
         }
 
-        public IActionResult OnGetDelete(string id)
+        public IActionResult OnGetDelete(int id)
         {
+            var timeSlot = db.TimeSlots.Single(x => x.AppointmentID == id);
+            timeSlot.AppointmentID = null;
             var appointment = db.Appointments.Find(id);
             db.Remove(appointment);
             db.SaveChanges();

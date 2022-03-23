@@ -36,6 +36,9 @@ namespace LaytonTempleTours.Migrations
                     b.Property<int>("Size")
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ID");
 
                     b.ToTable("Appointments");
@@ -54,9 +57,6 @@ namespace LaytonTempleTours.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("AppointmentID")
-                        .IsUnique();
 
                     b.ToTable("TimeSlots");
 
@@ -421,13 +421,6 @@ namespace LaytonTempleTours.Migrations
                             ID = 72,
                             DateTime = new DateTime(2022, 4, 9, 19, 0, 0, 0, DateTimeKind.Unspecified)
                         });
-                });
-
-            modelBuilder.Entity("LaytonTempleTours.Models.TimeSlot", b =>
-                {
-                    b.HasOne("LaytonTempleTours.Models.Appointment", "Appointment")
-                        .WithOne("TimeSlot")
-                        .HasForeignKey("LaytonTempleTours.Models.TimeSlot", "AppointmentID");
                 });
 #pragma warning restore 612, 618
         }

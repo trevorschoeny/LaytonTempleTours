@@ -8,24 +8,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LaytonTempleTours.Pages.Admin
 {
-    public class editModel : PageModel
+    public class EditModel : PageModel
     {
         private ToursContext db;
 
         [BindProperty]
         public Appointment appointment { get; set; }
 
-        public editModel(ToursContext _db)
+        public EditModel(ToursContext _db)
         {
             db = _db;
         }
-        public void OnGet(string id)
+        public void OnGet(int id)
         {
             appointment = db.Appointments.Find(id);
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(int appid)
         {
+            appointment.ID = appid;
             db.Entry(appointment).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             db.SaveChanges();
             return RedirectToPage("Index");

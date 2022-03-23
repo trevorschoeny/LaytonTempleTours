@@ -19,7 +19,7 @@
         <th>Size</th>
         <th>Email</th>
         <th>Phone</th>
-        <th>Time Slot</th>
+        <th>Time</th>
     </tr>
     @foreach(var app in Model.Appointments)
     {
@@ -29,7 +29,7 @@
             <td>@app.Size</td>
             <td>@app.Email</td>
             <td>@app.Phone</td>
-            <td>@app.TimeSlot</td>
+            <td>@app.Time</td>
 
             <td>
                 <a asp-page="edit" asp-route-id="@app.ID">Edit</a>
